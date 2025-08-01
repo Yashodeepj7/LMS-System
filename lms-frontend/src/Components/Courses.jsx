@@ -15,7 +15,7 @@ const CourseList = () => {
 
   const fetchCourses = async () => {
     try {
-      const res = await axios.get('http://localhost:8000/api/courses');
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/courses`);
       setCourses(res.data);
       setLoading(false);
     } catch (err) {
@@ -26,7 +26,7 @@ const CourseList = () => {
 
   const fetchEnrollments = async () => {
     try {
-      const res = await axios.get('http://localhost:8000/api/enrollments/me');
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/enrollments/me`);
       setEnrolledIds(res.data.map(e => e.courseId));
     } catch (err) {
       setError('Failed to load enrollments');
@@ -35,7 +35,7 @@ const CourseList = () => {
 
   const handleEnroll = async (courseId) => {
     try {
-      await axios.post('http://localhost:8000/api/enrollments', { courseId });
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/enrollments`, { courseId });
       setEnrolledIds([...enrolledIds, courseId]);
     } catch (err) {
       alert('Already enrolled or failed');
