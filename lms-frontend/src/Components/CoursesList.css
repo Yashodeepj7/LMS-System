@@ -1,0 +1,32 @@
+.course-card {
+  transition: transform 0.2s ease-in-out;
+  border: none;
+  border-radius: 10px;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+}
+
+.course-footer {
+  background-color: transparent;
+  border-top: none;
+}
+
+.course-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.course-text {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.course-meta {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.3rem;
+}

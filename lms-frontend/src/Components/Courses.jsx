@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, Button, Container, Row, Col, Spinner, Alert } from 'react-bootstrap';
+import './CourseList.css';
 
 const CourseList = () => {
   const [courses, setCourses] = useState([]);
@@ -43,8 +44,8 @@ const CourseList = () => {
   };
 
   return (
-    <Container className="py-4">
-      <h2 className="text-center mb-4">Available Courses</h2>
+    <Container className="py-5">
+      <h2 className="text-center mb-4">📚 Available Courses</h2>
 
       {error && <Alert variant="danger">{error}</Alert>}
       {loading ? (
@@ -55,18 +56,18 @@ const CourseList = () => {
         <Row>
           {courses.map(course => (
             <Col md={6} lg={4} key={course._id} className="mb-4">
-              <Card className="shadow-sm h-100">
+              <Card className="course-card h-100">
                 <Card.Body>
-                  <Card.Title>{course.title}</Card.Title>
-                  <Card.Text>{course.description}</Card.Text>
-                  <p><strong>Instructor:</strong> {course.instructor}</p>
-                  <p><strong>Duration:</strong> {course.duration}</p>
+                  <Card.Title className="course-title">{course.title}</Card.Title>
+                  <Card.Text className="course-text">{course.description}</Card.Text>
+                  <p className="course-meta"><strong>Instructor:</strong> {course.instructor}</p>
+                  <p className="course-meta"><strong>Duration:</strong> {course.duration}</p>
                 </Card.Body>
-                <Card.Footer className="bg-white border-top-0">
+                <Card.Footer className="course-footer">
                   {enrolledIds.includes(course._id) ? (
-                    <Button variant="success" disabled block>Enrolled</Button>
+                    <Button variant="success" disabled className="w-100">Enrolled</Button>
                   ) : (
-                    <Button variant="primary" onClick={() => handleEnroll(course._id)} block>Enroll</Button>
+                    <Button variant="primary" onClick={() => handleEnroll(course._id)} className="w-100">Enroll</Button>
                   )}
                 </Card.Footer>
               </Card>
