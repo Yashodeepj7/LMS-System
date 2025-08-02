@@ -29,3 +29,9 @@ A simple full-stack LMS (Learning Management System) where users can enroll in c
 ```bash
 git clone https://github.com/Yashodeepj7/LMS-System.git
 cd lms-frontend
+npm run dev
+
+Backend
+npm install
+node app.js
+
