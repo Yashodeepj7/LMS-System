@@ -9,7 +9,8 @@ connectDB();
 const app = express();
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://lms-system-mu-umber.vercel.app'],
+  origin: 'https://lms-system-eta.vercel.app', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
 app.use(express.json());
